@@ -19,7 +19,7 @@ public class TransposeOfMatrix {
         }
         for (int i = 0 ; i < cols ; i++){
             for (int j = 0 ; j < rows ; j++){
-                System.out.print(array[j][i]+" ");
+                System.out.print(array[j][i]+"  ");
             }
             System.out.println();
         }
