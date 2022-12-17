@@ -10,7 +10,7 @@ public class SearchAnInput {
         rows = sc.nextInt();
         System.out.println("Enter number of columns :");
         cols = sc.nextInt();
-        int array[][] = new int[rows][cols];
+        int[][] array = new int[rows][cols];
         for(int i = 0; i<rows; i++){
             for (int j = 0; j<cols ; j++){
                 System.out.println("Enter number at index :"+i+j);
