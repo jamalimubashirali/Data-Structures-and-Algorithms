@@ -37,6 +37,9 @@ public class LinkedList {
                 start = null;
                 return start;
             }
+            if(start.data == deleteNode.data){
+                start = start.next;
+            }
             Node p;
             for (p = start; p.next!= null; p = p.next){
                 if(p.next.next== null && p.next.data == deleteNode.data){
@@ -57,7 +60,7 @@ public class LinkedList {
            p.next = new Node(i);
            p = p.next;
         }
-       start = start.deleteNode(start,new Node(9));
+       start = start.deleteNode(start,new Node(1));
        start.printList(start);
     }
 }
