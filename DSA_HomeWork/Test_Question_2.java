@@ -8,20 +8,25 @@ public class Test_Question_2 {
             this.data = data;
         }
         public Node copy(Node start){
-            Node p = start;
-            Node q = p;
-            while(start!=null){
-                q.next = start.next;
-                start = start.next;
+            Node copy = new Node(start.data);
+            Node q = copy;
+            for (Node p=start.next ; p!=null; p=p.next){
+                q.next = new Node(p.data);
                 q = q.next;
+
             }
-            return p;
+            return copy;
         }
         public Node concate(Node start,Node copy){
-                Node p ;
-                for (p=start; p.next!=null; p = p.next) {
-                }
-               p.next = copy;
+//                    int i = 0;
+//                    while(i<3) {
+                        Node p;
+                        for (p = start; p.next != null; p = p.next) {
+                        }
+                        p.next = copy;
+                        //i++;
+//                    }
+
             return start;
         }
     }
@@ -35,7 +40,7 @@ public class Test_Question_2 {
         }
         Node copy = start.copy(start);
         start = start.concate(start,copy);
-        for (Node q = copy ; q!=null; q = q.next){
+        for (Node q = start ; q!=null; q = q.next){
             System.out.print(q.data+"->");
         }
     }
