@@ -1,7 +1,7 @@
 package DSA_HomeWork;
 
 
-public class Test {
+public class Test_Question_1 {
     static int size = 1;
     static class Node {
         int data;
@@ -27,12 +27,12 @@ public class Test {
         }
         public int mid(Node start){
             int mid = 0;
-            if(Test.size%2!=0){
-                for (int i = 1; i <= (Test.size/2) ; i++){
+            if(Test_Question_1.size%2!=0){
+                for (int i = 1; i <= (Test_Question_1.size/2) ; i++){
                     start = start.next;
                 }
             }
-            else if(Test.size%2==0){
+            else if(Test_Question_1.size%2==0){
                 System.out.println("The list has two middle element");
             }
             mid = start.data;
