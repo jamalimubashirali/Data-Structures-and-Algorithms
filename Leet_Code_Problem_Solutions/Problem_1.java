@@ -6,8 +6,7 @@ import java.util.*;
 public class Problem_1 {
     class Solution {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-            int l = nums1.length+nums2.length;
-            int numbers[] = new int[l];
+            int numbers[] = new int[nums1.length+nums2.length];
             int n = 0;
             for(int i = 0; i < 2 ; i++){
                 if(i == 0){
