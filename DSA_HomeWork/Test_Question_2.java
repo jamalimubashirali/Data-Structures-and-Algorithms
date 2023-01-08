@@ -1,6 +1,7 @@
 package DSA_HomeWork;
 
 public class Test_Question_2 {
+
     static class Node{
         int data;
         Node next;
@@ -40,8 +41,11 @@ public class Test_Question_2 {
         }
         Node copy = start.copy(start);
         start = start.concate(start,copy);
+        copy = start.copy(start);
+        start = start.concate(start,copy);
         for (Node q = start ; q!=null; q = q.next){
             System.out.print(q.data+"->");
         }
+        System.out.print("Null");
     }
 }
