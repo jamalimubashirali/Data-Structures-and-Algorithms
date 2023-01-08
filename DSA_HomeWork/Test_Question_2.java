@@ -43,9 +43,22 @@ public class Test_Question_2 {
         start = start.concate(start,copy);
         copy = start.copy(start);
         start = start.concate(start,copy);
+        System.out.println("Linked List");
         for (Node q = start ; q!=null; q = q.next){
             System.out.print(q.data+"->");
         }
-        System.out.print("Null");
+        System.out.println("Null");
+        int [] ans = new int[a.length*4];
+        int j = 0;
+        for (int i = 0; i < ans.length; i++) {
+            if (j == 3)
+                j = 0;
+            ans[i] = a[j];
+            j++;
+        }
+        System.out.println("Array");
+        for(int i = 0; i < ans.length; i++){
+            System.out.print(ans[i]+" ");
+        }
     }
 }
