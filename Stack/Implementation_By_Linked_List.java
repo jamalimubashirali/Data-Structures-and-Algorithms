@@ -35,13 +35,12 @@ public class Implementation_By_Linked_List {
 
     public static void main(String[] args) {
         Stack s = new Stack();
-        s.head = new Node(0);
-        for(int i = 1; i < 5; i++){
-            s.head = s.push(i);
+        for(int i = 0; i < 5; i++){
+            s.push(i);
         }
         while (s.head != null){
             System.out.println(s.peek());
-            s.head = s.pop();
+            s.pop();
         }
     }
 }
