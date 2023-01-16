@@ -4,7 +4,7 @@ public class Implementation_By_Array {
     static class Stack{
         int size;
         Object[] a ;
-        public void push(int data){
+        public void push(Object data){
             if(this.a == null){
                 a = new Object[1];
                 a[0] = data;
@@ -34,5 +34,38 @@ public class Implementation_By_Array {
         public int peek(){
             return (int)a[size-1];
         }
+        public String toString(){
+            String s = "";
+            for (int i = 0 ; i < size; i++){
+                s += String.valueOf(a[i])+" ";
+            }
+            return s;
+        }
+        public boolean isEquals(Stack s){
+            if(s.size != this.size){
+                return false;
+            }
+            for (int i = 0 ; i < size ; i++){
+                if(String.valueOf(this.a[i]) != String.valueOf(s.a[i]))
+                    return false;
+            }
+            return true;
+        }
+        public int popFromBottom(){
+            int pop;
+            if(a.length == 1){
+                pop = (int)a[0];
+                a = null;
+                return pop;
+            }
+            pop = (int) a[0];
+            Object b[] = new Object[size-=1];
+            for(int i = 0; i < size; i++){
+                b[i] = a[i+1];
+            }
+            a = b;
+            return pop;
+        }
     }
+
 }
