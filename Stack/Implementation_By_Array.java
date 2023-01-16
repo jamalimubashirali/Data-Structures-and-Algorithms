@@ -41,7 +41,7 @@ public class Implementation_By_Array {
             a = b;
             return pop;
         }
-        public int peek(){
+        public int peak(){
             return (int)a[size-1];
         }
         public String toString(){
