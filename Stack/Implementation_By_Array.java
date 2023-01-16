@@ -2,8 +2,18 @@ package Stack;
 
 public class Implementation_By_Array {
     static class Stack{
-        int size;
-        Object[] a ;
+        private int size;
+        private Object[] a ;
+        public boolean isEmpty(Stack s){
+            if(this.a == null)
+                return true;
+            return false;
+        }
+        public void printStack(){
+            for(int i = this.size-1 ; i >= 0 ; i--){
+                System.out.println(this.a[i]);
+            }
+        }
         public void push(Object data){
             if(this.a == null){
                 a = new Object[1];
@@ -68,4 +78,12 @@ public class Implementation_By_Array {
         }
     }
 
+    public static void main(String[] args) {
+        Stack s = new Stack();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        s.printStack();
+    }
 }
