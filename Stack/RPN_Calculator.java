@@ -45,7 +45,7 @@ class RPN{
         }
     }
     public boolean isAnOperator(String op){
-        return (op.length()==1 && (("ASMD".indexOf(op)>=0)||("asmd".indexOf(op)>=0))   );
+        return (op.length()==1 && (("ASMD".indexOf(op)>=0)||("asmd".indexOf(op)>=0)));
     }
 
     private double calculate(double x,double y,String op){
