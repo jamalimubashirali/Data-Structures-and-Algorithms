@@ -87,6 +87,5 @@ public class LinkedList {
             p = p.next;
             start.size++;
         }
-
     }
 }

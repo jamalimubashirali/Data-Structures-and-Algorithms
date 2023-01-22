@@ -31,6 +31,7 @@ public class Implementation_By_Array {
             if(a.length == 1){
                 pop = (int)a[0];
                 a = null;
+                size--;
                 return pop;
             }
             pop = (int) a[size-1];
@@ -66,6 +67,7 @@ public class Implementation_By_Array {
             if(a.length == 1){
                 pop = (int)a[0];
                 a = null;
+                size--;
                 return pop;
             }
             pop = (int) a[0];
@@ -76,5 +78,15 @@ public class Implementation_By_Array {
             a = b;
             return pop;
         }
+    }
+
+    public static void main(String[] args) {
+        Stack s = new Stack();
+        s.push(2);
+        System.out.println(s.size);
+        System.out.println(s.isEmpty(s));
+        s.popFromBottom();
+        System.out.println(s.isEmpty(s));
+        System.out.println(s.size);
     }
 }
