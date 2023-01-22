@@ -16,14 +16,21 @@ public class Sorting_2DArray {
             array[size] = arr[i][2];
             size++;
         }
-        Arrays.sort(array);
-        for (int i:array
-        ) {
+        for(int i = 0; i < array.length; i++){
+            for(int j = i+1; j < array.length; j++){
+                if(array[i] > array[j]){
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        for (int i: array) {
             System.out.print(i + " ");
         }
         System.out.println();
         int low , high;
-        low = 0; high = 29;
+        low = 0; high = array.length-1;
         while(low<=high){
             int mid = (low+high) - 1;
             if(array[mid] == target){
