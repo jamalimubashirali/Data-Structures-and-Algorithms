@@ -14,6 +14,16 @@ public class LinkedList {
             }
             System.out.print("Null");
         }
+        public Node insertInBetween(Node start,Node newNode){
+            for(Node p = start.next; p.next!=null; p = p.next){
+                if(p.data <= newNode.data && p.next.data >= newNode.data){
+                    newNode.next = p.next;
+                    p.next = newNode;
+                    return start;
+                }
+            }
+            return start;
+        }
         public Node insertNode(Node start,Node newNode){
             if(start == null)
                 return start;
@@ -54,13 +64,11 @@ public class LinkedList {
         }
     }
     public static void main(String[] args) {
-       Node start = new Node(1);
-       Node p = start;
-       for(int i = 2; i <= 10; i++){
-           p.next = new Node(i);
-           p = p.next;
+        Node start = new Node(1);
+        Node p = start;
+        for (int i = 2; i <= 10; i++) {
+            p.next = new Node(i);
+            p = p.next;
         }
-       start = start.deleteNode(start,new Node(1));
-       start.printList(start);
     }
 }
