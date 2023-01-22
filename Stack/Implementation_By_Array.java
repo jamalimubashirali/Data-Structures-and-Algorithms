@@ -52,6 +52,13 @@ public class Implementation_By_Array {
             }
             return s;
         }
+        public void reverse(){
+            for(int i = 0; i < this.a.length/2; i++){
+                Object temp = a[i];
+                a[i] = a[this.a.length-1-i];
+                a[this.a.length-1-i] = temp;
+            }
+        }
         public boolean isEquals(Stack s){
             if(s.size != this.size){
                 return false;
@@ -83,10 +90,9 @@ public class Implementation_By_Array {
     public static void main(String[] args) {
         Stack s = new Stack();
         s.push(2);
-        System.out.println(s.size);
-        System.out.println(s.isEmpty(s));
-        s.popFromBottom();
-        System.out.println(s.isEmpty(s));
-        System.out.println(s.size);
+        s.push(3);
+        s.push(4);
+        s.reverse();
+        s.printStack();
     }
 }
