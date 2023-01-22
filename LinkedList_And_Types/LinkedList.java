@@ -22,6 +22,7 @@ public class LinkedList {
                     return start;
                 }
             }
+            System.out.println("Can't insert in between");
             return start;
         }
         public Node insertNode(Node start,Node newNode){
