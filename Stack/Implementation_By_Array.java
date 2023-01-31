@@ -85,14 +85,22 @@ public class Implementation_By_Array {
             a = b;
             return pop;
         }
+        Implementation_By_Linked_List.Stack change_to_LinkedStack(){
+            Implementation_By_Linked_List.Stack linkedStack = new Implementation_By_Linked_List.Stack();
+            for(int i = 0; i < this.size; i++){
+                linkedStack.push((Integer) this.a[i]);
+            }
+            return linkedStack;
+        }
     }
 
     public static void main(String[] args) {
         Stack s = new Stack();
         s.push(2);
         s.push(3);
-        s.push(4);
-        s.reverse();
-        s.printStack();
+        s.push(10);
+        Implementation_By_Linked_List.Stack ls = s.change_to_LinkedStack();
+        System.out.println(ls.peek());
+
     }
 }
