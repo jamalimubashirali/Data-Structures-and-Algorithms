@@ -1,7 +1,7 @@
 package Stack;
 
 public class Implementation_By_Linked_List {
-    static class Node {
+    private static class Node {
         int data;
         Node next;
         Node (int data){
@@ -9,7 +9,7 @@ public class Implementation_By_Linked_List {
         }
     }
     static class Stack{
-        public  Node head;
+        private  Node head;
         public Node push(int data){
             Node newNode = new Node(data);
             if(head == null){
@@ -27,6 +27,14 @@ public class Implementation_By_Linked_List {
             head = head.next;
             return head;
         }
+        Implementation_By_Array.Stack change_to_arrayStack(){
+            Implementation_By_Array.Stack arrayStack = new Implementation_By_Array.Stack();
+            for(Node h = this.head ; h!=null; h = h.next){
+                arrayStack.push(h.data);
+            }
+            arrayStack.reverse();
+            return arrayStack;
+        }
         public int peek(){
             int top = head.data;
             return top;
@@ -38,9 +46,7 @@ public class Implementation_By_Linked_List {
         for(int i = 0; i < 5; i++){
             s.push(i);
         }
-        while (s.head != null){
-            System.out.println(s.peek());
-            s.pop();
-        }
+        Implementation_By_Array.Stack array = s.change_to_arrayStack();
+        array.printStack();
     }
 }
