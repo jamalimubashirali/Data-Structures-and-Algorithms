@@ -8,30 +8,27 @@ public class Implementing_Queue {
 
         Node(Object data) {
             this.data = data;
-            this.next = null;
-            this.pre = null;
+            this.next = this;
+            this.pre = this;
         }
     }
         static class MyQueue implements Queue{
             private Node head = new Node(null);
-            private Node current = null;
-            private int size = 1;
+            private int size = 0;
             @Override
             public void add(Object data) {
                 Node newNode = new Node(data);
-                 if (this.size()==1) {
-                    current = newNode;
-                    head.next = current;
-                    current.next = head;
-                    current.pre = head;
-                    head.pre = current;
-                    size++;
-                } else{
+                if(head.next == head){
+                    head.next = newNode;
+                    newNode.pre = head;
+                    head.pre = newNode;
                     newNode.next = head;
-                    current.next = newNode;
-                    newNode.pre = current;
-                    current = newNode;
-                    size++;
+                }
+                else {
+                    newNode.pre = head.pre;
+                    head.pre.next = newNode;
+                    head.pre = newNode;
+                    newNode.next = head;
                 }
             }
             public void print(){
@@ -42,7 +39,8 @@ public class Implementing_Queue {
             @Override
             public Object remove() {
                 Object remove = head.next.data;
-                head = head.next;
+                head.next = head.next.next;
+                head.next.pre = head;
                 return remove;
             }
 
