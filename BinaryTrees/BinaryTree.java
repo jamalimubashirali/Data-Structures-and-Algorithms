@@ -57,10 +57,13 @@ public class BinaryTree {
         return height;
     }
     public String search(Object a){
-            if(this.root.equals(a))
+            if(this.root == a)
                  return "Found";
-
-                return "Not Found";
+            if(right!=null)
+                return right.search(a);
+            if(left!=null)
+                return left.search(a);
+            return "Not Found";
     }
     public boolean isLeaf(){
         if(this.right == null && this.left == null)

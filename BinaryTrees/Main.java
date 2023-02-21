@@ -8,6 +8,6 @@ public class Main {
         BinaryTree g = new BinaryTree("G",new BinaryTree("J"),new BinaryTree("K"));
         BinaryTree c = new BinaryTree("C",f,g);
         BinaryTree a = new BinaryTree("A",b,c);
-        System.out.println(a.search("I"));
+        System.out.println(a.search("D"));
     }
 }
