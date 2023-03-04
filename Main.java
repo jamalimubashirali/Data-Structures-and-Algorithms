@@ -1,42 +1,86 @@
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
-    static class Solution {
-        public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-
-            int numbers[] = new int[nums1.length+nums1.length];
-            int n = 0;
-            for(int i = 0; i < 2 ; i++){
-                if(i == 0){
-                    for(int j = 0; j < nums1.length; j++){
-                        numbers[n] = nums1[j];
-                        n++;
-                    }
+        public static void main(String[] args) throws FileNotFoundException {
+            File file  = new File("D:\\Mubashir's Programs\\Third Semester\\Data Structures and Algorithms\\DSA\\src\\PBL_DSA\\ped_crashes.csv");
+            Scanner sc = new Scanner(file);
+            String s;
+            int [] years = {2018,2017,2016,2015,2014,2013,2012,2011,2010};
+            String[] month = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+            ArrayList<String> jan = new ArrayList<>();
+            ArrayList<String> feb = new ArrayList<>();
+            ArrayList<String> mar = new ArrayList<>();
+            ArrayList<String> apr = new ArrayList<>();
+            ArrayList<String> may = new ArrayList<>();
+            ArrayList<String> jun = new ArrayList<>();
+            ArrayList<String> jul = new ArrayList<>();
+            ArrayList<String> aug = new ArrayList<>();
+            ArrayList<String> sep = new ArrayList<>();
+            ArrayList<String> oct = new ArrayList<>();
+            ArrayList<String> nov = new ArrayList<>();
+            ArrayList<String> dec = new ArrayList<>();
+            while (sc.hasNextLine()){
+                s = sc.nextLine();
+                if(s.contains("January")){
+                    jan.add(s);
+                } else if(s.contains("February")){
+                    feb.add(s);
+                } else if (s.contains("March")){
+                    mar.add(s);
+                } else if (s.contains("April")) {
+                    apr.add(s);
+                } else if (s.contains("May")) {
+                    may.add(s);
+                } else if (s.contains("June")) {
+                    jun.add(s);
+                } else if (s.contains("July")) {
+                    jul.add(s);
+                } else if (s.contains("August")) {
+                    aug.add(s);
+                } else if (s.contains("September")) {
+                    sep.add(s);
+                }else if (s.contains("October")) {
+                    oct.add(s);
+                } else if (s.contains("November")) {
+                    nov.add(s);
+                }else if (s.contains("December")) {
+                    dec.add(s);
                 }
-                if(i == 1){
-                    for(int j = 0; j < nums2.length; j++){
-                        numbers[n] = nums2[j];
-                        n++;
+            }
+            ArrayList<ArrayList<String>> months = new ArrayList<>();
+            months.add(jan);
+            months.add(feb);
+            months.add(mar);
+            months.add(apr);
+            months.add(may);
+            months.add(jun);
+            months.add(jul);
+            months.add(aug);
+            months.add(sep);
+            months.add(oct);
+            months.add(nov);
+            months.add(dec);
+            ArrayList<String> data = new ArrayList<>();
+            for(int i = 0; i < years.length; i++) {
+                for(int j = 0; j<month.length;j++) {
+                    for(int k = 0; k < months.size();k++) {
+                        for (int l = 0; l < months.get(k).size(); l++) {
+                            if(months.get(k).get(l).contains(Integer.toString(years[i])) && months.get(k).get(l).contains(month[j])){
+                                data.add(months.get(k).get(l));
+                            }
+                        }
                     }
                 }
             }
-            float  f = 0;
-            Arrays.sort(numbers);
-            if(numbers.length% 2 != 0){
-                f = numbers[numbers.length/2];
-            } else if (numbers.length%2 == 0) {
-                f = (numbers[numbers.length/2]+numbers[numbers.length/2-1])/(float)2;
+            int i = 0;
+            for (String s1: data) {
+                i++;
+                System.out.println(s1);
             }
-            return f;
-        }
-
-        public static void main(String[] args) {
-            Solution s = new Solution();
-            int a[] = {1,3};
-            int b[] = {2};
-            System.out.println(s.findMedianSortedArrays(a,b));
-            System.out.println(a.length+b.length);
-        }
+            System.out.println(i);
     }
 }
 
