@@ -1,10 +1,10 @@
 package Queue;
 
 public class Implementing_Queue implements Queue{
-    static class Node {
-        Object data;
-        Node pre;
-        Node next;
+    public static class Node {
+        public Object data;
+        public Node pre;
+        public Node next;
 
         Node(Object data) {
             this.data = data;
@@ -12,7 +12,7 @@ public class Implementing_Queue implements Queue{
             this.pre = this;
         }
     }
-            private Node head = new Node(null);
+            public Node head = new Node(null);
             private int size = 0;
             @Override
             public void add(Object data) {
