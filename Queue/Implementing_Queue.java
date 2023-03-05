@@ -1,6 +1,6 @@
 package Queue;
 
-public class Implementing_Queue {
+public class Implementing_Queue implements Queue{
     static class Node {
         Object data;
         Node pre;
@@ -12,7 +12,6 @@ public class Implementing_Queue {
             this.pre = this;
         }
     }
-        static class MyQueue implements Queue{
             private Node head = new Node(null);
             private int size = 0;
             @Override
@@ -52,6 +51,6 @@ public class Implementing_Queue {
             @Override
             public int size() {
                 return this.size;
-            }
+
         }
 }

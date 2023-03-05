@@ -1,5 +1,4 @@
 package BinaryTrees;
-
 public class BinaryTree {
     private Object root;
     private BinaryTree left,right;
