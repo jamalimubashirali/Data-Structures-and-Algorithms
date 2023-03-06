@@ -4,19 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import BinaryTrees.*;
 public class CarCrashes {
-    static class Node {
-        Object data;
-        Node pre;
-        Node next;
-
-        Node(Object data) {
-            this.data = data;
-            this.next = this;
-            this.pre = this;
-        }
-    }
         private Implementing_Queue mainQueue = new Implementing_Queue();
         private Implementing_Queue snowQueue = new Implementing_Queue();
         private Implementing_Queue clearQueue = new Implementing_Queue();
@@ -28,6 +17,8 @@ public class CarCrashes {
         private Implementing_Queue friday = new Implementing_Queue();
         private Implementing_Queue saturday = new Implementing_Queue();
         private Implementing_Queue sunday = new Implementing_Queue();
+        private AVLTree Hit_And_Run;
+        private AVLTree Not_Hit_And_Run;
         private String s;
         private int[] years = {2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010};
         private String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -44,6 +35,7 @@ public class CarCrashes {
         private ArrayList<String> oct = new ArrayList<>();
         private ArrayList<String> nov = new ArrayList<>();
         private ArrayList<String> dec = new ArrayList<>();
+        // Step - 1 Of PBL
         public CarCrashes() throws FileNotFoundException {
                 File file  = new File("D:\\Mubashir's Programs\\Third Semester\\Data Structures and Algorithms\\DSA\\src\\PBL_DSA\\ped_crashes.csv");
                 Scanner sc = new Scanner(file);
@@ -101,7 +93,9 @@ public class CarCrashes {
                 }
                 creatingThreeSubQueues();
                 creatingSevenDayQueues();
+                creatingTwoBinaryTrees();
         }
+    // Step - 2 Of PBL
         public void creatingThreeSubQueues(){
             for (Implementing_Queue.Node p = mainQueue.head.next; p!= mainQueue.head; p = p.next){
                 if(p.data.toString().contains("Clear"))
@@ -112,6 +106,7 @@ public class CarCrashes {
                     snowQueue.add(p.data);
             }
         }
+    // Step - 3 Of PBL
         public void creatingSevenDayQueues(){
             for (Implementing_Queue.Node p = mainQueue.head.next; p!= mainQueue.head; p = p.next){
                 if(p.data.toString().contains("Monday"))
@@ -129,8 +124,28 @@ public class CarCrashes {
                 if(p.data.toString().contains("Sunday"))
                     sunday.add(p.data);
             }
-            monday.print();
         }
+    // Step - 4 Of PBL
+        public void creatingTwoBinaryTrees() {
+            for (int i = 0; i < months.size(); i++) {
+                int hit = 0;
+                int notHit = 0;
+                for (int j = 0; j < months.get(i).size(); j++) {
+                    if (months.get(i).get(j).contains("Hit-and-run"))
+                        hit++;
+                    else if (months.get(i).get(j).contains("Not hit-and-run"))
+                        notHit++;
+                }
+                if(Hit_And_Run == null && Not_Hit_And_Run == null){
+                                Hit_And_Run = new AVLTree(hit,month[i]);
+                                Not_Hit_And_Run = new AVLTree(notHit,month[i]);
+                }else{
+                    Hit_And_Run.add(hit,month[i]);
+                    Not_Hit_And_Run.add(notHit,month[i]);
+                }
+            }
+        }
+
 }
 class Main{
     public static void main(String[] args) throws FileNotFoundException {
