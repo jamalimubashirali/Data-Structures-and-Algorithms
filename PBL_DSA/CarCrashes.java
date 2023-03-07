@@ -94,6 +94,11 @@ public class CarCrashes {
                 creatingThreeSubQueues();
                 creatingSevenDayQueues();
                 creatingTwoBinaryTrees();
+                solutionOfProblem1();
+                solutionOfProblem2();
+                solutionOfProblem3();
+                solutionOfPostulate();
+
         }
     // Step - 2 Of PBL
         public void creatingThreeSubQueues(){
@@ -145,7 +150,138 @@ public class CarCrashes {
                 }
             }
         }
-
+    public void deadliestDay(){
+        int count = 0;
+        for(Implementing_Queue.Node p = tuesday.head.next; p!=tuesday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        AVLTree deadDay = new AVLTree(count,"Tuesday");
+        count = 0;
+        for(Implementing_Queue.Node p = monday.head.next; p!=monday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Monday");
+        count = 0;
+        for(Implementing_Queue.Node p = sunday.head.next; p!=sunday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Sunday");
+        count = 0;
+        for(Implementing_Queue.Node p = saturday.head.next; p!=saturday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Saturday");
+        count = 0;
+        for(Implementing_Queue.Node p = wednesday.head.next; p!=wednesday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Wednesday");
+        count = 0;
+        for(Implementing_Queue.Node p = friday.head.next; p!=friday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Friday");
+        count = 0;
+        for(Implementing_Queue.Node p = thursday.head.next; p!=thursday.head; p = p.next){
+            if(p.data.toString().contains("Hit-and-run"))
+                count++;
+        }
+        deadDay.add(count,"Thursday");
+        System.out.println("The deadliest day in all days is ");
+        deadDay.rightMostValue();
+    }
+        public void deadliestFriday(){
+            AVLTree deadFriday = null;
+            for(int i =0; i < months.size(); i++){
+                int count = 0;
+                for(int j = 0; j < months.get(i).size(); j++){
+                    if(months.get(i).get(j).contains("Friday") && months.get(i).get(j).contains("Hit-and-run"))
+                        count++;
+                }
+                if(deadFriday == null){
+                    deadFriday = new AVLTree(count,month[i]);
+                }else {
+                    deadFriday.add(count,month[i]);
+                }
+            }
+            System.out.print("The deadliest friday is of ");
+            deadFriday.rightMostValue();
+        }
+        // Solution of problem 1
+        public void solutionOfProblem1(){
+            System.out.println("Solution to Problem 1");
+            System.out.println();
+            deadliestDay();
+            System.out.println();
+            deadliestFriday();
+        }
+        // Solution of Problem 2
+        public void solutionOfProblem2(){
+            System.out.println();
+            System.out.println("Solution of problem 2");
+            System.out.println();
+            AVLTree rain_Hit_And_Run = null;
+            for (int i = 0; i < months.size(); i++) {
+                int hit = 0;
+                for (int j = 0; j < months.get(i).size(); j++) {
+                    if (months.get(i).get(j).contains("Hit-and-run") && months.get(i).get(j).contains("Rain"))
+                                hit++;
+                }
+                if(rain_Hit_And_Run == null){
+                    rain_Hit_And_Run = new AVLTree(hit,month[i]);
+                }else{
+                    rain_Hit_And_Run.add(hit,month[i]);
+                }
+            }
+            System.out.println("Number of Rainy Day crashes in each month");
+            System.out.println(rain_Hit_And_Run);
+        }
+        public void solutionOfProblem3(){
+            System.out.println();
+            System.out.println("Solution of problem 3");
+            System.out.println();
+            System.out.println("The lowest number of crashes in Hit-and-Run Tree");
+            Hit_And_Run.leftMostValue();
+            System.out.println("The highest number of crashes in Hit-and-Run Tree");
+            Hit_And_Run.rightMostValue();
+            System.out.println("The lowest number of crashes in Not-Hit-and-Run Tree");
+            Not_Hit_And_Run.leftMostValue();
+            System.out.println("The lowest number of crashes in Not-Hit-and-Run Tree");
+            Not_Hit_And_Run.rightMostValue();
+        }
+        public void solutionOfPostulate(){
+            int mondayAndTuesday = 0;
+            for(Implementing_Queue.Node p = tuesday.head.next; p!=tuesday.head; p = p.next){
+                if(p.data.toString().contains("Hit-and-run") && p.data.toString().contains("Dark lighted"))
+                    mondayAndTuesday++;
+            }
+            for(Implementing_Queue.Node p = monday.head.next; p!=monday.head; p = p.next){
+                if(p.data.toString().contains("Hit-and-run") && p.data.toString().contains("Dark lighted"))
+                    mondayAndTuesday++;
+            }
+            int saturdayAndSunday = 0;
+            for(Implementing_Queue.Node p = sunday.head.next; p!=sunday.head; p = p.next){
+                if(p.data.toString().contains("Hit-and-run") && p.data.toString().contains("Dark lighted"))
+                    saturdayAndSunday++;
+            }
+            for(Implementing_Queue.Node p = saturday.head.next; p!=saturday.head; p = p.next){
+                if(p.data.toString().contains("Hit-and-run") && p.data.toString().contains("Dark lighted"))
+                    saturdayAndSunday++;
+            }
+            System.out.println();
+            if(mondayAndTuesday < saturdayAndSunday){
+                System.out.println("The postulate is true");
+            }
+            else{
+                System.out.println("The postulate is false");
+            }
+        }
 }
 class Main{
     public static void main(String[] args) throws FileNotFoundException {

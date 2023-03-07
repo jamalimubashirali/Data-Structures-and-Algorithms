@@ -39,6 +39,20 @@ public class AVLTree {
         height = 1+Math.max(left.height, right.height);
         return this;
     }
+    public void leftMostValue(){
+        if(this.left == NIL){
+            System.out.println(key + " " + value);
+            return;
+        }
+        this.left.leftMostValue();
+    }
+    public void rightMostValue(){
+        if(this.right == NIL){
+            System.out.println(key + " " + value);
+            return;
+        }
+        this.right.rightMostValue();
+    }
     public boolean add(int key,Object value){
         int oldSize = size();
         grow(key,value);
