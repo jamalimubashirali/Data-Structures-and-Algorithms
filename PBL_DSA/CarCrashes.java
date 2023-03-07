@@ -242,6 +242,7 @@ public class CarCrashes {
             System.out.println("Number of Rainy Day crashes in each month");
             System.out.println(rain_Hit_And_Run);
         }
+        // Solution of Problem 3
         public void solutionOfProblem3(){
             System.out.println();
             System.out.println("Solution of problem 3");
@@ -255,6 +256,7 @@ public class CarCrashes {
             System.out.println("The lowest number of crashes in Not-Hit-and-Run Tree");
             Not_Hit_And_Run.rightMostValue();
         }
+        // Solution of Postulate
         public void solutionOfPostulate(){
             int mondayAndTuesday = 0;
             for(Implementing_Queue.Node p = tuesday.head.next; p!=tuesday.head; p = p.next){
