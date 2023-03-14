@@ -1,11 +1,13 @@
 package PBL_DSA;
-import Queue.*;
+
+import BinaryTrees.AVLTree2;
+import Queue.Implementing_Queue;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import BinaryTrees.*;
-public class CarCrashes2 {
+
+public class CarCrashes3 {
     private Implementing_Queue mainQueue = new Implementing_Queue();
     private Implementing_Queue snowQueue = new Implementing_Queue();
     private Implementing_Queue clearQueue = new Implementing_Queue();
@@ -36,7 +38,7 @@ public class CarCrashes2 {
     private ArrayList<String> nov = new ArrayList<>();
     private ArrayList<String> dec = new ArrayList<>();
     // Step - 1 Of PBL
-    public CarCrashes2() throws FileNotFoundException {
+    public CarCrashes3() throws FileNotFoundException {
         File file  = new File("D:\\Mubashir's Programs\\Third Semester\\Data Structures and Algorithms\\DSA\\src\\PBL_DSA\\ped_crashes.csv");
         Scanner sc = new Scanner(file);
         while (sc.hasNextLine()){
@@ -153,44 +155,44 @@ public class CarCrashes2 {
     public void deadliestDay(){
         int count = 0;
         for(Implementing_Queue.Node p = tuesday.head.next; p!=tuesday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Tuesday") && p.data.toString().contains("Fatal injury"))
+                    count++;
         }
         AVLTree2 deadDay = new AVLTree2(count,"Tuesday");
         count = 0;
         for(Implementing_Queue.Node p = monday.head.next; p!=monday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Monday") && p.data.toString().contains("Fatal injury"))
+                    count++;
         }
         deadDay.add(count,"Monday");
         count = 0;
         for(Implementing_Queue.Node p = sunday.head.next; p!=sunday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Sunday") && p.data.toString().contains("Fatal injury"))
+                    count++;
         }
         deadDay.add(count,"Sunday");
         count = 0;
         for(Implementing_Queue.Node p = saturday.head.next; p!=saturday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Saturday") && p.data.toString().contains("Fatal injury"))
+                        count++;
         }
         deadDay.add(count,"Saturday");
         count = 0;
         for(Implementing_Queue.Node p = wednesday.head.next; p!=wednesday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Wednesday") && p.data.toString().contains("Fatal injury"))
+                        count++;
         }
         deadDay.add(count,"Wednesday");
         count = 0;
         for(Implementing_Queue.Node p = friday.head.next; p!=friday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Friday") && p.data.toString().contains("Fatal injury"))
+                        count++;
         }
         deadDay.add(count,"Friday");
         count = 0;
         for(Implementing_Queue.Node p = thursday.head.next; p!=thursday.head; p = p.next){
-
-                count++;
+            if(p.data.toString().contains("Thursday") && p.data.toString().contains("Fatal injury"))
+                        count++;
         }
         deadDay.add(count,"Thursday");
         System.out.println("The deadliest day in all days is ");
@@ -201,7 +203,7 @@ public class CarCrashes2 {
         for(int i =0; i < months.size(); i++){
             int count = 0;
             for(int j = 0; j < months.get(i).size(); j++){
-                if(months.get(i).get(j).contains("Friday"))
+                if(months.get(i).get(j).contains("Friday") && months.get(i).get(j).contains("Fatal injury"))
                     count++;
             }
             if(deadFriday == null){
@@ -285,8 +287,8 @@ public class CarCrashes2 {
         }
     }
 }
-class Main2{
+class Main3{
     public static void main(String[] args) throws FileNotFoundException {
-        CarCrashes2 c = new CarCrashes2();
+        CarCrashes3 c = new CarCrashes3();
     }
 }
