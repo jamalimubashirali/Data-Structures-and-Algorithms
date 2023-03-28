@@ -1,15 +1,15 @@
 package BinaryTrees;
-public class BinaryTree {
+public class Tree {
     private Object root;
-    private BinaryTree left,right;
+    private Tree left,right;
     private int size;
     private int height;
     private int leftHeight;
     private int rightHeight;
-    public BinaryTree(Object root){
+    public Tree(Object root){
         this.root = root;
     }
-    public BinaryTree(Object root,BinaryTree left,BinaryTree right){
+    public Tree(Object root,Tree left,Tree right){
         this.root = root;
         this.right = right;
         this.left = left;
@@ -79,4 +79,5 @@ public class BinaryTree {
         }
         return size;
     }
+
 }

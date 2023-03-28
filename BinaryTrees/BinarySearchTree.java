@@ -38,6 +38,16 @@ public class BinarySearchTree {
         height = 1+Math.max(left.height, right.height);
         return this;
     }
+    public boolean search(int key){
+        if(this.key == key)
+            return true;
+        if(this.key < key && this.right!= NIL)
+            return right.search(key);
+        if(this.key > key && this.left != NIL)
+            return left.search(key);
+        else
+            return false;
+    }
     public void leftMostValue(){
         if(this.left == NIL){
             System.out.println(key + " " + value);
@@ -57,9 +67,35 @@ public class BinarySearchTree {
         grow(key,value);
         return size() > oldSize;
     }
+    public String inLIne(){
+        StringBuffer buf = new StringBuffer();
+        if(this.left != NIL)
+            buf.append(left.inLIne());
+        buf.append(this.key+" "+this.value+" ");
+        if(this.right != NIL)
+            buf.append(right.inLIne());
+        return buf+"";
+    }
+    public String preOrder(){
+        StringBuffer buf = new StringBuffer();
+        buf.append(this.key+" "+this.value+" ");
+        if(this.left != NIL)
+            buf.append(left.preOrder());
+        if(this.right != NIL)
+            buf.append(right.preOrder());
+        return buf+"";
+    }
     public String toString(){
         if(this == NIL)
             return "";
         return this.left+" "+this.key+" "+this.value+" "+this.right;
+    }
+    public static void main(String[] args) {
+        int[] a = {67,45,78,56,89,34,57,89};
+        BinarySearchTree b = new BinarySearchTree(a[0],0);
+        for(int i = 1; i < a.length; i++){
+            b.add(a[i],i);
+        }
+        System.out.println(b.search(2));
     }
 }
