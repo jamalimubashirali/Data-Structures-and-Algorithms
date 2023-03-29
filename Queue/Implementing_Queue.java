@@ -51,6 +51,5 @@ public class Implementing_Queue implements Queue{
             @Override
             public int size() {
                 return this.size;
-
         }
 }
