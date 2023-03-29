@@ -21,8 +21,6 @@ public class HashTable {
         int h = hash(key);
         for (int i = 0; i < nodes.length; i++) {
             int j = (h + i) % nodes.length;
-//            if(nodes[j] == null)
-//                break;
             if (nodes[j] != null && nodes[j].key.equals(key)) {
                 return nodes[j].value;
             }
